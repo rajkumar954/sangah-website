@@ -1,205 +1,18 @@
-<!--
-Project: Sangah Website
-Structure (create these folders at the same level):
-
-sangah-project/
-├─ html/            <-- put this file (index.html) inside this folder
-├─ images/          <-- put all images here (home.jpg, vision.jpg, mission.jpg, about.jpg, contact.jpg)
-
-Usage:
-1. Save this file as html/index.html
-2. Create an images/ folder next to the html/ folder and add images named as used in the markup (or update paths).
-3. Open html/index.html in a browser.
-
-
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sangah — Home</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* Simple, clean styles. Save as inline or extract to css/style.css */
-    :root{--accent:#2c6fb6;--muted:#666}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; color:#222; line-height:1.5}
-    header{background:linear-gradient(90deg, #f8fbff, #eef6ff); border-bottom:1px solid #eee}
-    .container{max-width:1000px; margin:0 auto; padding:20px}
-    nav{display:flex; justify-content:space-between; align-items:center}
-    .logo{font-weight:700; color:var(--accent)}
-    .nav-links{display:flex; gap:14px}
-    .nav-links a{color:var(--accent); text-decoration:none; padding:8px 10px; border-radius:8px}
-    .nav-links a:hover{background:rgba(44,111,182,0.08)}
-
-    .hero{display:grid; grid-template-columns:1fr 360px; gap:20px; align-items:center; margin-top:18px}
-    .hero h1{margin:0 0 10px 0; font-size:28px}
-    .hero p{margin:0 0 16px 0; color:var(--muted)}
-    .hero img{width:100%; height:220px; object-fit:cover; border-radius:12px; box-shadow:0 6px 18px rgba(20,30,60,0.06)}
-
-    section{padding:40px 0; border-bottom:1px solid #f1f5f9}
-    .section-head{display:flex; align-items:center; gap:12px}
-    .section-head h2{margin:0}
-    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:18px}
-
-    .card{background:white; border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(20,30,60,0.04)}
-    .muted{color:var(--muted)}
-
-    footer{padding:18px 0; text-align:center; color:var(--muted)}
-
-    /* Contact form */
-    form{display:grid; gap:10px}
-    input, textarea{padding:10px; border-radius:8px; border:1px solid #ddd; width:100%; font-size:14px}
-    button{background:var(--accent); color:white; padding:10px 14px; border-radius:8px; border:0; cursor:pointer}
-    
-
-    /* Responsive */
-    @media (max-width:900px){ .hero{grid-template-columns:1fr} .hero img{height:180px} .nav-links{display:none} }
-    
-
-  </style>/*--
-</head>
-<body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo">Sangah</div>
-        <div class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#vision">Vision</a>
-          <a href="#mission">Mission</a>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact Us</a>
-        </div>
-      </nav>
-
-      <div class="hero">
-        <div>
-          <h1 id="home">Welcome to Sangah</h1>
-          <p class="muted">A community dedicated to bringing people together through culture, service and shared values.</p>
-          <p>Explore our vision, mission and learn about who we are. If you'd like to join or ask a question, reach out using the contact form.</p>
-          <p><a href="#contact" style="color:var(--accent);">Get in touch →</a></p>
-        </div>
-        <div>
-          <img src="../images/home.jpg" alt="Sangah Home Image" onerror="this.style.opacity=.4;this.alt='Place home.jpg in images/ folder'">
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <section id="vision">
-      <div class="section-head">
-        <h2>Vision</h2>
-      </div>
-      <div class="grid" style="margin-top:14px">
-        <div class="card">
-          <img src="../images/vision.jpg" alt="Vision image" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:12px" onerror="this.style.opacity=.4">
-          <h3>Our Future</h3>
-          <p class="muted">To build an inclusive, supportive community where culture and service go hand-in-hand, empowering members to create lasting impact.</p>
-        </div>
-        <div class="card">
-          <h3>Core Values</h3>
-          <p class="muted">Respect, Collaboration, Sustainability and Growth — guiding every decision we make.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="mission">
-      <div class="section-head">
-        <h2>Mission</h2>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <h3>Connect</h3>
-          <p class="muted">Foster connections between members through events, workshops and volunteer programmes.</p>
-        </div>
-        <div class="card">
-          <h3>Serve</h3>
-          <p class="muted">Run community service initiatives that address local needs and promote well-being.</p>
-        </div>
-        <div class="card">
-          <h3>Preserve</h3>
-          <p class="muted">Celebrate and preserve cultural practices by sharing knowledge and involving the younger generation.</p>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="section-head">
-        <h2>About Us</h2>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <img src="../images/about.jpg" alt="About image" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:12px" onerror="this.style.opacity=.4">
-          <h3>Who We Are</h3>
-          <p class="muted">Sangah is a grassroots community organisation run by volunteers. We organise cultural events, learning circles and service projects.</p>
-        </div>
-        <div class="card">
-          <h3>Join Us</h3>
-          <p class="muted">Membership is open. Attend an event or contact us — we'd love to meet you.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="section-head">
-        <h2>Contact Us</h2>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Send a message</h3>
-          <form onsubmit="event.preventDefault(); alert('This is a demo form — replace with server-side handling or JS API.');">
-            <input type="text" placeholder="Your name" required>
-            <input type="email" placeholder="Your email" required>
-            <textarea rows="4" placeholder="Your message" required></textarea>
-            <button type="submit">Send</button>
-          </form>
-        </div>
-
-        <div class="card">
-          <h3>Contact details</h3>
-          <p class="muted">Email: <a href="mailto:info@sangah.org">info@sangah.org</a></p>
-          <p class="muted">Phone: +91-XXXXXXXXXX</p>
-          <p class="muted">Address: Your local community hall or office</p>
-
-          <div style="margin-top:12px">
-            <img src="../images/contact.jpg" alt="Contact image" style="width:100%; height:120px; object-fit:cover; border-radius:8px" onerror="this.style.opacity=.4">
-          </div>
-        </div>
-      </div>
-
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; <span id="year"></span> Sangah. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script>
-    // small script to set year and smooth scroll
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click', e=>{ e.preventDefault(); const id=a.getAttribute('href').slice(1); const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }); });
-  </script>
-</body>
-</html>-->
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sangah — Home</title>
+  <meta name="description" content="Indore Earthmovers Ekta Sangh — community of earthmover owners and operators. Events, rallies, social initiatives and more." />
+  <title>Indore Earthmovers Ekta Sangh — Home</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
     <div class="container">
-      <nav>
-        <div class="logo">Sangah</div>
-        <div class="nav-links">
+      <nav aria-label="Main navigation">
+        <div class="logo">Indore Earthmovers Ekta Sangh</div>
+        <div class="nav-links" role="navigation" aria-label="Primary">
           <a href="#home">Home</a>
           <a href="#about">About Us</a>
           <a href="#vision">Our Vision</a>
@@ -212,123 +25,144 @@ Usage:
   </header>
 
   <main>
-    <!-- Home panel (background covers both columns) -->
-    <section id="home" class="panel" style="background-image:url('images/home.jpg')">
-      <div class="panel-overlay"></div>
+
+    <!-- HOME -->
+    <section id="home" class="panel" aria-labelledby="home-heading">
       <div class="panel-inner container">
         <div class="panel-left">
-          <h1>Welcome to Sangah</h1>
+          <h1 id="home-heading">Welcome to Indore Earthmovers Ekta Sangh</h1>
+          <p>
+            Indore Earthmovers Ekta Sangh is a united community of earthmover owners, operators,
+            and supporters committed to strength, unity, and service. We bring together individuals from the
+            earthmoving and construction industry to celebrate their work, support one another, and contribute
+            to society through rallies, community events, welfare activities, and cultural programmes.
+          </p>
+          <p>
+            Join us as we build a future where teamwork, tradition, and social responsibility go hand in hand —
+            supporting members professionally and uplifting our neighbourhoods.
+          </p>
         </div>
+
         <div class="panel-right">
-          <p>Welcome to Indore Earthmovers Ekta Sangah, a united community of earthmover owners, operators, and supporters committed to strength, unity, and service. Our Sangah represents the powerful spirit of collaboration where individuals from the earthmoving and construction industry come together to celebrate their work, support one another, and contribute to society. Through rallies, community events, welfare activities, and cultural initiatives, we aim to inspire pride in our profession while building a strong network rooted in respect, unity, and progress. Join us as we shape a future where teamwork, tradition, and social responsibility go hand in hand.</p>
+          <div class="panel-image" style="background-image:url('images/home-side.jpg');" role="img" aria-label="Lineup of JCB machines"></div>
         </div>
       </div>
     </section>
 
-    <!-- About Us panel -->
-    <section id="about" class="panel" style="background-image:url('images/about.jpg')">
-      <div class="panel-overlay"></div>
+    <!-- ABOUT -->
+    <section id="about" class="panel" aria-labelledby="about-heading">
       <div class="panel-inner container">
         <div class="panel-left">
-          <h2>About Us</h2>
+          <h2 id="about-heading">About Us</h2>
+          <p>
+            Indore Earthmovers Ekta Sangh is a collective organisation formed to unite earthmover professionals,
+            machinery operators, and community members under one banner of cooperation and mutual growth. We
+            promote unity among JCB and heavy machinery owners, organise large-scale rallies and events,
+            and run welfare initiatives that benefit our neighbours.
+          </p>
+          <p>
+            Guided by dedication, respect and togetherness, our Sangh supports members to grow professionally,
+            socially and culturally through training, collaboration and community service.
+          </p>
         </div>
+
         <div class="panel-right">
-          <p>Indore Earthmovers Ekta Sangah is a collective organisation formed to unite earthmover professionals, machinery operators, and community members under one banner of cooperation and mutual growth. Our Sangah actively works to promote unity among JCB and heavy machinery owners, conducts large-scale rallies and events, and participates in welfare initiatives that benefit society. We believe in uplifting our community through collaboration, skill-sharing, leadership development, and cultural participation. Guided by dedication, respect, and togetherness, Indore Earthmovers Ekta Sangah strives to create a supportive environment where members help each other grow—professionally, socially, and culturally.</p>
+          <div class="panel-image" style="background-image:url('images/about-side.jpg');" role="img" aria-label="Group of members with earthmoving machines"></div>
         </div>
       </div>
     </section>
 
-    <!-- Vision panel -->
-    <section id="vision" class="panel" style="background-image:url('images/vision.jpg')">
-      <div class="panel-overlay"></div>
+    <!-- VISION -->
+    <section id="vision" class="panel" aria-labelledby="vision-heading">
       <div class="panel-inner container">
         <div class="panel-left">
-          <h2>Our Vision</h2>
+          <h2 id="vision-heading">Our Vision</h2>
+          <p>
+            Our vision at Indore Earthmovers Ekta Sangh is to build a vibrant, inclusive and socially empowered community
+            where people from diverse backgrounds come together to learn, grow and support one another. We aim to preserve
+            cultural heritage, foster belonging, and inspire the next generation to lead with responsibility and compassion.
+          </p>
         </div>
+
         <div class="panel-right">
-          <p>Our vision is to build a vibrant, inclusive, and socially empowered community where people from all backgrounds come together to learn, grow, and support one another. We strive to create an environment where cultural heritage is preserved and celebrated, where every individual feels a strong sense of belonging, and where youth are inspired to lead with responsibility and compassion. By combining tradition with positive innovation, we aim to nurture a community that values unity, service, and collective well-being, ensuring that our cultural identity and spirit remain strong for generations to come.</p>
+          <div class="panel-image" style="background-image:url('images/vision-side.jpg');" role="img" aria-label="Sunrise over machinery symbolizing growth"></div>
         </div>
       </div>
     </section>
 
-    <!-- Mission panel -->
-    <section id="mission" class="panel" style="background-image:url('images/mission.jpg')">
-      <div class="panel-overlay"></div>
+    <!-- MISSION -->
+    <section id="mission" class="panel" aria-labelledby="mission-heading">
       <div class="panel-inner container">
         <div class="panel-left">
-          <h2>Our Mission</h2>
+          <h2 id="mission-heading">Our Mission</h2>
+          <p>
+            The mission of Indore Earthmovers Ekta Sangh is to unite earthmover owners, operators and enthusiasts through
+            unity-driven initiatives, cultural programmes and social welfare activities. We promote collaboration within
+            the industry, encourage professional growth, and organise events that showcase the strength and discipline of our Sangh.
+          </p>
         </div>
+
         <div class="panel-right">
-          <p>The mission of Indore Earthmovers Ekta Sangah is to bring earthmover owners, operators, and enthusiasts together through unity-driven initiatives, cultural programmes, and social welfare activities. We aim to encourage collaboration within the industry, promote professional growth, and organise large-scale rallies and events that showcase the strength and discipline of our Sangah. We are committed to supporting our members, uplifting society through service, and creating opportunities for learning, leadership, and participation. Our mission is to foster an atmosphere of trust, respect, and togetherness—ensuring that every member stands strong as part of one united Sangah.</p>
+          <div class="panel-image" style="background-image:url('images/mission-side.jpg');" role="img" aria-label="Earthmover working at a community drive"></div>
         </div>
       </div>
     </section>
 
-    <!-- Recent events -->
-    <section id="events" class="container events-section">
-      <h2>Recent Events</h2>
+    <!-- EVENTS -->
+    <section id="events" class="container events-section" aria-labelledby="events-heading">
+      <h2 id="events-heading">Recent Events</h2>
+
       <div class="events-grid">
-        <article class="event-card" style="background-image:url('images/event1.jpg');">
-          <div class="event-overlay"></div>
+        <article class="event-card" aria-labelledby="event1-title">
+          <div class="event-image" style="background-image:url('images/event1-side.jpg');" role="img" aria-label="Convoy of JCBs"></div>
+
           <div class="event-content">
-            <h3>101 Earthmovers Vehicle Tiranga Yatra</h3>
-            <p class="muted">Venue: Gandhi Nagar, Indore</p>
-            <p class="muted">Date: 26th January 2026</p>
-            <p class="muted">Time:10:00 a.m. to 02:00 p.m.<p>
-            <p>Event Description
+            <h3 id="event1-title">101 Earthmovers Vehicle Tiranga Yatra</h3>
+            <p class="muted"><strong>Venue:</strong> Super Corridor, Indore</p>
+            <p class="muted"><strong>Date:</strong> <time datetime="2026-01-26">26 January 2026</time></p>
+            <p class="muted"><strong>Time:</strong> 10:00 AM – 02:00 PM</p>
 
-The Grand JCB Rally is a historic and powerful celebration of unity, strength and national spirit. On 26th January 2026, a remarkable convoy of 101 JCB machines will travel together across the Super Corridor, creating a breathtaking visual tribute to the hardworking spirit that builds our nation.
+            <h4>Event Description</h4>
+            <p>
+              The Grand JCB Rally is a historic celebration of unity, strength and national pride. On 26 January 2026,
+              a convoy of 101 JCB earthmovers travelled together along the Super Corridor, creating a remarkable visual
+              tribute to the workforce that builds our nation. The rally symbolised coordination, patriotism and the
+              spirit of community contribution.
+            </p>
 
-This event is not just a rally — it is a symbol of:
-
-Strength and progress, represented by the mighty fleet of JCBs
-
-Unity and coordination, showcased through the disciplined convoy movement
-
-Respect for the workforce that contributes daily to construction and development
-
-Patriotism, as the rally honors the significance of Republic Day
-
-Spectators will witness an extraordinary lineup of machinery, decorated in vibrant patriotic themes, moving in harmony as a mark of respect and pride. The rally aims to inspire the community, highlight the importance of infrastructure development, and bring people together in celebration of national achievements.
-
-Be part of this unforgettable moment where engineering meets patriotism, as 101 JCBs shape a grand vision of India’s strength and unity.</p>
+            <ul>
+              <li>Highlights: 101-vehicle convoy, decorated machines and organised parade</li>
+              <li>Purpose: Celebrate Republic Day and honour earthmover operators</li>
+              <li>Audience: Open to the public — spectators should follow marshals and safety instructions</li>
+            </ul>
           </div>
         </article>
 
-       <!-- <article class="event-card" style="background-image:url('images/event2.jpg');">
-          <div class="event-overlay"></div>
-          <div class="event-content">
-            <h3>Cultural Evening</h3>
-            <p class="muted">Venue: Riverside Grounds</p>
-            <p class="muted">Date: 22 October 2025</p>
-          </div>
-        </article>
-
-        <article class="event-card" style="background-image:url('images/event3.jpg');">
-          <div class="event-overlay"></div>
-          <div class="event-content">
-            <h3>Tree Plantation Drive</h3>
-            <p class="muted">Venue: Green Park</p>
-            <p class="muted">Date: 5 September 2025</p>
-          </div>
-        </article>-->
+        <!-- add more .event-card blocks here for other events -->
       </div>
     </section>
 
-    <!-- Contact section remains simple -->
-    <section id="contact" class="container">
-      <h2>Contact Us</h2>
+    <!-- CONTACT -->
+    <section id="contact" class="container" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Us</h2>
       <div class="contact-grid">
         <div>
-          <p class="muted">Email: earthmovers.ekta.sangh@gmail.como</p>
-          <p class="muted">Phone: +91-9926075286</p>
-          <p class="muted">Phone: +91-9893318966</p>
+          <p class="muted">Email: <a href="mailto:earthmovers.ekta.sangh@gmail.com">earthmovers.ekta.sangh@gmail.com</a></p>
+          <p class="muted">Phone: <a href="tel:+919926075286">+91 99260 75286</a></p>
+          <p class="muted">Phone: <a href="tel:+919893318966">+91 98933 18966</a></p>
         </div>
+
         <div>
-          <form onsubmit="event.preventDefault(); alert('Demo form — connect to a backend to enable sending.');">
-            <input type="text" placeholder="Your name" required>
-            <input type="email" placeholder="Your email" required>
-            <textarea rows="4" placeholder="Your message" required></textarea>
+          <form onsubmit="event.preventDefault(); alert('Demo form — implement backend to send messages.');">
+            <label class="sr-only" for="name">Your name</label>
+            <input id="name" type="text" placeholder="Your name" required>
+
+            <label class="sr-only" for="email">Your email</label>
+            <input id="email" type="email" placeholder="Your email" required>
+
+            <label class="sr-only" for="message">Your message</label>
+            <textarea id="message" rows="4" placeholder="Your message" required></textarea>
+
             <button type="submit">Send</button>
           </form>
         </div>
@@ -339,21 +173,21 @@ Be part of this unforgettable moment where engineering meets patriotism, as 101 
 
   <footer>
     <div class="container">
-      <p>&copy; <span id="year"></span> Indore Earthmovers ekta Sangah. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> Indore Earthmovers Ekta Sangh. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
+    // set current year and smooth scroll for anchor links
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click', e=>{ e.preventDefault(); const id=a.getAttribute('href').slice(1); const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }); });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
