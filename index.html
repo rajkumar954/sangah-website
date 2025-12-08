@@ -11,7 +11,7 @@ Usage:
 2. Create an images/ folder next to the html/ folder and add images named as used in the markup (or update paths).
 3. Open html/index.html in a browser.
 
--->
+
 
 <!doctype html>
 <html lang="en">
@@ -20,7 +20,7 @@ Usage:
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sangah — Home</title>
   <link rel="stylesheet" href="css/style.css">
-  <!--<style>
+  <style>
     /* Simple, clean styles. Save as inline or extract to css/style.css */
     :root{--accent:#2c6fb6;--muted:#666}
     *{box-sizing:border-box}
@@ -58,7 +58,7 @@ Usage:
     @media (max-width:900px){ .hero{grid-template-columns:1fr} .hero img{height:180px} .nav-links{display:none} }
     
 
-  </style>/*-->
+  </style>/*--
 </head>
 <body>
   <header>
@@ -185,6 +185,151 @@ Usage:
     document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click', e=>{ e.preventDefault(); const id=a.getAttribute('href').slice(1); const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }); });
   </script>
 </body>
+</html>-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sangah — Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Sangah</div>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#vision">Our Vision</a>
+          <a href="#mission">Our Mission</a>
+          <a href="#events">Recent Events</a>
+          <a href="#contact">Contact Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Home panel (background covers both columns) -->
+    <section id="home" class="panel" style="background-image:url('images/home.jpg')">
+      <div class="panel-overlay"></div>
+      <div class="panel-inner container">
+        <div class="panel-left">
+          <h1>Welcome to Sangah</h1>
+        </div>
+        <div class="panel-right">
+          <p>We are a community dedicated to culture, service and togetherness. Join us in events, learning circles and volunteer programmes that make a real difference.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us panel -->
+    <section id="about" class="panel" style="background-image:url('images/about.jpg')">
+      <div class="panel-overlay"></div>
+      <div class="panel-inner container">
+        <div class="panel-left">
+          <h2>About Us</h2>
+        </div>
+        <div class="panel-right">
+          <p>Sangah is a grassroots organisation run by volunteers. We organise cultural events, workshops and service projects to strengthen community bonds and preserve traditions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision panel -->
+    <section id="vision" class="panel" style="background-image:url('images/vision.jpg')">
+      <div class="panel-overlay"></div>
+      <div class="panel-inner container">
+        <div class="panel-left">
+          <h2>Our Vision</h2>
+        </div>
+        <div class="panel-right">
+          <p>To build an inclusive, supportive community that empowers members and preserves culture for future generations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission panel -->
+    <section id="mission" class="panel" style="background-image:url('images/mission.jpg')">
+      <div class="panel-overlay"></div>
+      <div class="panel-inner container">
+        <div class="panel-left">
+          <h2>Our Mission</h2>
+        </div>
+        <div class="panel-right">
+          <p>Connect people through events and volunteer work, serve local needs, and celebrate cultural heritage by involving all ages.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent events -->
+    <section id="events" class="container events-section">
+      <h2>Recent Events</h2>
+      <div class="events-grid">
+        <article class="event-card" style="background-image:url('images/event1.jpg');">
+          <div class="event-overlay"></div>
+          <div class="event-content">
+            <h3>Community Health Camp</h3>
+            <p class="muted">Venue: City Hall</p>
+            <p class="muted">Date: 10 November 2025</p>
+          </div>
+        </article>
+
+        <article class="event-card" style="background-image:url('images/event2.jpg');">
+          <div class="event-overlay"></div>
+          <div class="event-content">
+            <h3>Cultural Evening</h3>
+            <p class="muted">Venue: Riverside Grounds</p>
+            <p class="muted">Date: 22 October 2025</p>
+          </div>
+        </article>
+
+        <article class="event-card" style="background-image:url('images/event3.jpg');">
+          <div class="event-overlay"></div>
+          <div class="event-content">
+            <h3>Tree Plantation Drive</h3>
+            <p class="muted">Venue: Green Park</p>
+            <p class="muted">Date: 5 September 2025</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact section remains simple -->
+    <section id="contact" class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-grid">
+        <div>
+          <p class="muted">Email: info@sangah.org</p>
+          <p class="muted">Phone: +91-XXXXXXXXXX</p>
+        </div>
+        <div>
+          <form onsubmit="event.preventDefault(); alert('Demo form — connect to a backend to enable sending.');">
+            <input type="text" placeholder="Your name" required>
+            <input type="email" placeholder="Your email" required>
+            <textarea rows="4" placeholder="Your message" required></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Sangah. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click', e=>{ e.preventDefault(); const id=a.getAttribute('href').slice(1); const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }); });
+  </script>
+</body>
 </html>
+
 
 
