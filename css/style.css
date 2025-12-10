@@ -129,6 +129,7 @@ header {
   height: 260px;
   background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   border-radius: 12px;
 }
 
@@ -308,5 +309,6 @@ footer {
   background: linear-gradient(90deg,#2c6fb6,#1f9d8a);
   opacity: 1;
 }
+
 
 
