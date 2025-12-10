@@ -125,7 +125,7 @@ header {
 }
 
 .event-image {
-  width: 40%;
+  width: 260px;
   height: 260px;
   background-size: contain;
   background-position: center;
@@ -309,6 +309,7 @@ footer {
   background: linear-gradient(90deg,#2c6fb6,#1f9d8a);
   opacity: 1;
 }
+
 
 
 
