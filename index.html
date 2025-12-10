@@ -213,64 +213,72 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   
+
 (function(){
+
   const slider = document.querySelector('.gallery-section .slider');
-  if(!slider) return;
+  if (!slider) return;
 
   const slidesWrap = slider.querySelector('.slides');
   const slides = [...slidesWrap.children];
-  const prev = slider.querySelector('.prev');
   const next = slider.querySelector('.next');
+  const prev = slider.querySelector('.prev');
   const dotsWrap = slider.querySelector('.slider-dots');
 
   let current = 0;
-  let animating = false;
   let timer = null;
-  const autoplay = 4000;
+  const autoplay = 3500;
+  let animating = false;
 
-  slides.forEach((_, idx) => {
-    const dot = document.createElement("button");
-    dot.dataset.index = idx;
-    dot.addEventListener("click", () => goTo(idx));
+  // Create dots based on number of slides
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.dataset.index = i;
+    dot.onclick = () => goTo(i);
     dotsWrap.appendChild(dot);
   });
 
   const dots = [...dotsWrap.children];
 
-  function updateUI() {
+  // Update slider UI
+  function update() {
     slidesWrap.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((d, idx) => d.classList.toggle("active", idx === current));
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
   }
 
   function goTo(i) {
     if (animating) return;
     animating = true;
+
     current = (i + slides.length) % slides.length;
-    updateUI();
+    update();
+
     setTimeout(() => animating = false, 500);
-    resetAutoplay();
+    resetAuto();
   }
 
   next.onclick = () => goTo(current + 1);
   prev.onclick = () => goTo(current - 1);
 
-  function startAutoplay() {
-    timer = setInterval(() => goTo(current + 1), autoplay);
-  }
-  function stopAutoplay() { clearInterval(timer); }
-  function resetAutoplay() { stopAutoplay(); startAutoplay(); }
+  // Autoplay
+  function startAuto(){ timer = setInterval(() => goTo(current + 1), autoplay); }
+  function stopAuto(){ clearInterval(timer); }
+  function resetAuto(){ stopAuto(); startAuto(); }
 
-  slider.addEventListener("mouseenter", stopAutoplay);
-  slider.addEventListener("mouseleave", startAutoplay);
+  slider.onmouseenter = stopAuto;
+  slider.onmouseleave = startAuto;
 
-  updateUI();
-  startAutoplay();
+  update();
+  startAuto();
+
 })();
 </script>
 
 
+
 </body>
 </html>
+
 
 
 
