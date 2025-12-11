@@ -349,13 +349,16 @@ footer {
   color: var(--accent-1);
   text-decoration: none;
   gap: 10px;
+  padding-top: 12px;   /* moves logo down */
+  padding-left: 10px;  /* moves logo right */
 }
 
 .logo-img {
   height: 100px;
-  width: 100px;
+  width: auto;
   object-fit: contain;
 }
+
 
 
 
