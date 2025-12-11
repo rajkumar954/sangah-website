@@ -136,6 +136,44 @@ header {
 .event-content {
   flex: 1;
 }
+/* EVENT SECTION WITH IMAGE + VIDEO ON RIGHT */
+.event-wrapper {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 20px 0;
+  flex-wrap: wrap;
+}
+
+.event-info {
+  flex: 1;
+  min-width: 260px;
+}
+
+.event-media {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+.event-image-box {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  object-fit: cover;
+}
+
+.event-video-box {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
 
 /* ------- CONTACT ------- */
 
@@ -320,5 +358,6 @@ footer {
   width: 40px;
   object-fit: contain;
 }
+
 
 
