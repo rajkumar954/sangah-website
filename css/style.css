@@ -114,64 +114,62 @@ header {
 
 /* ------- EVENTS ------- */
 
-.event-card {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  display: flex;
-  gap: 18px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  margin-top: 20px;
-}
-
-.event-image {
-  width: 260px;
-  height: 260px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 12px;
-}
-
-.event-content {
-  flex: 1;
-}
-/* EVENT SECTION WITH IMAGE + VIDEO ON RIGHT */
+/* EVENT SECTION FIXED LAYOUT */
 .event-wrapper {
   display: flex;
+  flex-wrap: nowrap;      /* FORCE two columns */
   gap: 24px;
   align-items: flex-start;
-  padding: 20px 0;
-  flex-wrap: wrap;
 }
 
 .event-info {
   flex: 1;
-  min-width: 260px;
+  min-width: 300px;
 }
 
 .event-media {
   flex: 1;
-  min-width: 280px;
+  min-width: 320px;
+  max-width: 420px;       /* prevent image from becoming too large */
   display: flex;
   flex-direction: column;
   gap: 16px;
-  justify-content: flex-start;
 }
 
+/* FIXED IMAGE SIZE */
 .event-image-box {
   width: 100%;
-  max-width: 460px;
+  height: 260px;          /* fixed height */
+  object-fit: cover;      /* crops nicely */
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  object-fit: cover;
 }
 
+/* FIXED VIDEO SIZE */
 .event-video-box {
   width: 100%;
-  max-width: 460px;
+  height: 260px;
   border-radius: 12px;
+  object-fit: cover;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* MOBILE VIEW FIX */
+@media (max-width: 900px) {
+  .event-wrapper {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .event-media {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .event-image-box,
+  .event-video-box {
+    height: 220px;    /* adjust for mobile */
+  }
 }
 
 
@@ -354,10 +352,11 @@ footer {
 }
 
 .logo-img {
-  height: 40px;
-  width: 40px;
+  height: 100px;
+  width: 100px;
   object-fit: contain;
 }
+
 
 
 
