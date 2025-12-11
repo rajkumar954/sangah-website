@@ -18,27 +18,18 @@ body {
 /* ------- NAVIGATION (ADVANCED STYLE) ------- */
 
 header {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background: rgba(255,255,255,0.72);
-  backdrop-filter: blur(8px) saturate(120%);
-  border-bottom: 1px solid rgba(30,40,60,0.06);
-  box-shadow: 0 6px 20px rgba(12,20,30,0.04);
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+  padding: 6px 0;          /* reduces navbar height */
 }
 
 .nav-container {
   display: flex;
+  align-items: center;     /* vertically center nav items */
   justify-content: space-between;
-  align-items: center;
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: 800;
-  color: #1f5f9d;
-  transition: transform 0.2s ease;
-}
+
 
 .logo:hover {
   transform: translateY(-2px);
@@ -49,12 +40,11 @@ header {
   gap: 14px;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #1f5f9d;
-  font-weight: 600;
-  padding: 8px 10px;
-  position: relative;
+.logo img {
+  height: 70px;
+  width: auto;
+  margin-left: 20px;       /* move right */
+  margin-top: 8px;         /* move down */
 }
 
 .nav-links a::after {
@@ -354,11 +344,14 @@ footer {
   padding-left: 30px;  /* moves logo right */
 }
 
-.logo-img {
-  height: 100px;
+.logo img {
+  height: 70px;          /* good visible size */
   width: auto;
-  object-fit: contain;
+  margin-left: 20px;     /* move right */
+  margin-top: 8px;       /* move down */
 }
+
+
 
 
 
