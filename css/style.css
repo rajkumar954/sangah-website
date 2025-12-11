@@ -15,49 +15,82 @@ body {
   padding: 20px;
 }
 
-/* ------- NAVIGATION (ADVANCED STYLE) ------- */
-
+/* ===== HEADER / BRAND / NAV FIX ===== */
 header {
   background: #ffffff;
   border-bottom: 1px solid #eee;
-  padding: 6px 0;          /* reduces navbar height */
+  padding: 6px 0;              /* reduced navbar height */
 }
 
+/* container aligns items horizontally */
 .nav-container {
   display: flex;
-  align-items: center;     /* vertically center nav items */
-  justify-content: space-between;
+  align-items: center;         /* vertically centers logo + nav */
+  gap: 12px;
+  justify-content: flex-start; /* brand at left; nav will be pushed right by margin-left:auto */
 }
 
+/* brand: logo + text together */
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;                    /* small gap between logo and title */
+  text-decoration: none;
+  color: inherit;
+}
+
+/* actual logo size and offset */
+.logo-img {
+  height: 56px;                /* adjust size here */
+  width: auto;
+  display: block;
+  margin: 6px 0 6px 6px;       /* tiny top offset and small left spacing */
+  box-shadow: none;
+  border-radius: 6px;          /* optional rounded logo */
+}
+
+/* site title next to logo */
+.site-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1b1b1b;
+  line-height: 1;
+  margin: 0;
+}
+
+/* push nav to the right */
+.nav-links {
+  margin-left: auto;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+/* smaller nav link padding so bar stays compact */
+.nav-links a {
+  text-decoration: none;
+  color: var(--accent-1, #1f5f9d);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* keep hamburger hidden on desktop; shown by media queries */
+.nav-toggle { display: none; background: transparent; border: 0; }
+
+/* responsive: show mobile nav toggle and stack nav */
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; align-items:center; justify-content:center; }
+  .nav-links { display: none; position: fixed; right: 12px; top: 64px; flex-direction: column; padding: 12px; background: rgba(255,255,255,0.98); border-radius: 12px; box-shadow: 0 20px 60px rgba(2,8,23,0.12); min-width: 200px; }
+  .nav-links a { display:block; padding: 10px 14px; }
+}
 
 
 .logo:hover {
   transform: translateY(-2px);
 }
 
-.nav-links {
-  display: flex;
-  gap: 14px;
-}
 
-.logo img {
-  height: 70px;
-  width: auto;
-  margin-left: 20px;       /* move right */
-  margin-top: 8px;         /* move down */
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: -6px;
-  height: 3px;
-  background: linear-gradient(90deg,#2c6fb6,#1f9d8a);
-  transform: scaleX(0);
-  transition: transform 0.25s ease;
-}
 
 .nav-links a:hover::after {
   transform: scaleX(1);
@@ -333,23 +366,7 @@ footer {
 .slider-dots button.active {
   background: #2c6fb6;
 }
-.logo {
-  display: flex;
-  align-items: center;
-  font-weight: 800;
-  color: var(--accent-1);
-  text-decoration: none;
-  gap: 10px;
-  padding-top: 25px;   /* moves logo down */
-  padding-left: 30px;  /* moves logo right */
-}
 
-.logo img {
-  height: 70px;          /* good visible size */
-  width: auto;
-  margin-left: 20px;     /* move right */
-  margin-top: 8px;       /* move down */
-}
 
 
 
