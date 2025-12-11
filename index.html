@@ -106,34 +106,50 @@
 
     <!-- EVENTS -->
     <section id="events" class="events-section">
-      <div class="container">
-        <h2>Recent Events</h2>
+  <div class="container">
+    <h2>Recent Events</h2>
 
-        <div class="event-card">
-          <div class="event-image" style="background-image:url('images/event1.jpg')"></div>
+    <div class="event-wrapper">
 
-          <div class="event-content">
-            <h3>101 Earthmovers Vehicle Tiranga Yatra</h3>
-            <p><strong>Venue:</strong> Gandhi Nagar Ground, Indore</p>
-            <p><strong>Date:</strong> 26 January 2026</p>
-            <p><strong>Time:</strong> 10:00 AM – 02:00 PM</p>
+      <!-- LEFT SIDE: EVENT DETAILS -->
+      <div class="event-info">
+        <h3>101 Earthmovers Vehicle Tiranga Yatra</h3>
+        <p><strong>Venue:</strong> Gandhi Nagar Ground, Indore</p>
+        <p><strong>Date:</strong> 26 January 2026</p>
+        <p><strong>Time:</strong> 10:00 AM – 02:00 PM</p>
 
-            <p>
-              A historic rally of 101 vehicles celebrating national pride on Republic Day.
-              The convoy showcased unity, discipline and the powerful contribution of 
-              earthmover professionals to nation-building.
-            </p>
+        <p>
+          A historic rally of 101 earthmovers celebrating national pride on Republic Day.
+          The convoy showcased unity, discipline, and the powerful contribution of 
+          earthmover professionals to nation-building.
+        </p>
 
-            <ul>
-              <li>Massive 101-vehicle convoy</li>
-              <li>Patriotic decorations</li>
-              <li>Celebration of India's development spirit</li>
-            </ul>
-          </div>
-        </div>
+        <ul>
+          <li>Massive 101-vehicle convoy</li>
+          <li>Patriotic decorations</li>
+          <li>Celebration of India’s development spirit</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT SIDE: IMAGE + VIDEO -->
+      <div class="event-media">
+        
+        <!-- IMAGE -->
+        <img src="images/event1.jpg" alt="Event Image" class="event-image-box" loading="lazy">
+
+        <!-- VIDEO -->
+        <video controls class="event-video-box">
+          <source src="videos/event.mp4" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
 
       </div>
-    </section>
+
+    </div>
+
+  </div>
+</section>
+
 
     <!-- ================= GALLERY / 20-IMAGE SLIDER ================= -->
 <section id="gallery" class="gallery-section">
@@ -283,6 +299,7 @@
 
 </body>
 </html>
+
 
 
 
