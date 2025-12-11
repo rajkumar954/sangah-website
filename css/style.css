@@ -306,9 +306,19 @@ footer {
 .slider-dots button.active {
   background: #2c6fb6;
 }
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  color: var(--accent-1);
+  text-decoration: none;
+  gap: 10px;
+}
 
-
-
-
+.logo-img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+}
 
 
