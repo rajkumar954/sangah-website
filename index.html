@@ -12,22 +12,33 @@
 <body>
 
   <!-- HEADER -->
-  <header>
-     <a class="logo" href="#home">
-  <img src="images/logo.jpg" alt="Sangh Logo" class="logo-img">
-</a>
-    <div class="container nav-container">
-      <div class="logo">Indore Earthmovers Ekta Sangh</div>
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#vision">Vision</a>
-        <a href="#mission">Mission</a>
-        <a href="#events">Events</a>
-        <a href="#contact">Contact Us</a>
-      </nav>
+ <!-- ===== REPLACE ENTIRE HEADER WITH THIS ===== -->
+<header>
+  <div class="container nav-container">
+    <div class="brand">
+      <a href="#home" class="brand-link" aria-label="Home">
+        <img src="images/logo.png" alt="Indore Earthmovers Ekta Sangh logo" class="logo-img">
+        <span class="site-title">Indore Earthmovers Ekta Sangh</span>
+      </a>
     </div>
-  </header>
+
+    <!-- hamburger (keep if you need mobile) -->
+    <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation">
+      <span class="hamburger"></span>
+    </button>
+
+    <nav id="primary-nav" class="nav-links" role="navigation" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#vision">Vision</a>
+      <a href="#mission">Mission</a>
+      <a href="#events">Events</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
 
   <main>
 
@@ -306,6 +317,7 @@
 
 </body>
 </html>
+
 
 
 
