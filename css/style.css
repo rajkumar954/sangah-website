@@ -62,7 +62,7 @@ header {
 .nav-links {
   margin-left: auto;
   display: flex;
-  gap: 14px;
+  gap: 11px;
   align-items: center;
 }
 
@@ -94,6 +94,7 @@ header {
 
 .nav-links a:hover::after {
   transform: scaleX(1);
+  transform: translateY(-2px);
 }
 
 /* ------- PANEL SECTIONS ------- */
@@ -366,6 +367,7 @@ footer {
 .slider-dots button.active {
   background: #2c6fb6;
 }
+
 
 
 
