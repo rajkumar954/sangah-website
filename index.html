@@ -731,490 +731,164 @@
        JAVASCRIPT
        ===================================================== -->
 
-  <script>
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const slider = document.querySelector(".slider");
+    const slidesContainer = document.querySelector(".slides");
+    const slides = document.querySelectorAll(".slide");
+
+    const prevButton = document.querySelector(".slider-btn.prev");
+    const nextButton = document.querySelector(".slider-btn.next");
+
+    const dotsContainer = document.querySelector(".slider-dots");
+
+    if (!slider || !slidesContainer || slides.length === 0) {
+        console.log("Slider elements not found");
+        return;
+    }
+
+    let currentIndex = 0;
 
 
-    /* =====================================================
-       CURRENT YEAR
-       ===================================================== */
+    /* ==============================
+       CREATE DOTS
+       ============================== */
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    slides.forEach(function (slide, index) {
 
+        const dot = document.createElement("button");
 
+        dot.type = "button";
+        dot.className = "slider-dot";
 
-    /* =====================================================
-       NAV TOGGLE + SCROLL SPY
-       ===================================================== */
+        dot.addEventListener("click", function () {
 
-    (function () {
+            currentIndex = index;
 
+            showSlide();
 
-      const toggle =
-        document.querySelector(".nav-toggle");
-
-
-      const nav =
-        document.getElementById("primary-nav");
-
-
-      if (toggle && nav) {
-
-
-        /* MOBILE MENU */
-
-        toggle.addEventListener("click", function () {
-
-          const isOpen =
-            toggle.classList.toggle("open");
-
-
-          toggle.setAttribute(
-            "aria-expanded",
-            isOpen ? "true" : "false"
-          );
-
-
-          if (isOpen) {
-
-            nav.style.display = "flex";
-
-          } else {
-
-            nav.style.display = "";
-
-          }
+            restartAutoSlide();
 
         });
 
+        dotsContainer.appendChild(dot);
+
+    });
 
 
-        /* CLOSE MENU WHEN CLICKING OUTSIDE */
-
-        document.addEventListener(
-          "click",
-          function (e) {
+    const dots = document.querySelectorAll(".slider-dot");
 
 
-            if (
-              !toggle.contains(e.target) &&
-              !nav.contains(e.target) &&
-              window.innerWidth <= 900
-            ) {
+    /* ==============================
+       SHOW SLIDE
+       ============================== */
+
+    function showSlide() {
+
+        slidesContainer.style.transform =
+            "translateX(-" + (currentIndex * 100) + "%)";
 
 
-              toggle.classList.remove("open");
+        dots.forEach(function (dot, index) {
 
+            dot.classList.remove("active");
 
-              toggle.setAttribute(
-                "aria-expanded",
-                "false"
-              );
-
-
-              nav.style.display = "";
-
+            if (index === currentIndex) {
+                dot.classList.add("active");
             }
 
-          }
-        );
+        });
 
-      }
-
+    }
 
 
-      /* =================================================
-         SCROLL SPY
-         ================================================= */
+    /* ==============================
+       NEXT
+       ============================== */
 
-      const links =
-        Array.from(
-          document.querySelectorAll(".nav-links a")
-        );
+    nextButton.addEventListener("click", function () {
 
+        currentIndex++;
 
-      const sections =
-        links
-          .map(function (a) {
+        if (currentIndex >= slides.length) {
+            currentIndex = 0;
+        }
 
-            return document.getElementById(
-              a.getAttribute("href").slice(1)
-            );
+        showSlide();
 
-          })
-          .filter(Boolean);
+        restartAutoSlide();
+
+    });
 
 
+    /* ==============================
+       PREVIOUS
+       ============================== */
 
-      function onScroll() {
+    prevButton.addEventListener("click", function () {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = slides.length - 1;
+        }
+
+        showSlide();
+
+        restartAutoSlide();
+
+    });
 
 
-        const top =
-          window.scrollY +
-          (window.innerHeight * 0.15);
+    /* ==============================
+       AUTO SLIDE
+       ============================== */
+
+    let autoSlide = setInterval(function () {
+
+        currentIndex++;
+
+        if (currentIndex >= slides.length) {
+            currentIndex = 0;
+        }
+
+        showSlide();
+
+    }, 4000);
 
 
-        let currentIndex = 0;
+    /* ==============================
+       RESTART AUTO SLIDE
+       ============================== */
 
+    function restartAutoSlide() {
 
-        sections.forEach(
-          function (section, index) {
+        clearInterval(autoSlide);
 
-            if (section.offsetTop <= top) {
+        autoSlide = setInterval(function () {
 
-              currentIndex = index;
+            currentIndex++;
 
+            if (currentIndex >= slides.length) {
+                currentIndex = 0;
             }
 
-          }
-        );
+            showSlide();
 
+        }, 4000);
 
-        links.forEach(
-          function (link, index) {
+    }
 
-            link.classList.toggle(
-              "active",
-              index === currentIndex
-            );
 
-          }
-        );
+    /* ==============================
+       INITIAL SLIDE
+       ============================== */
 
-      }
+    showSlide();
 
-
-      window.addEventListener(
-        "scroll",
-        onScroll,
-        { passive: true }
-      );
-
-
-      window.addEventListener(
-        "resize",
-        onScroll
-      );
-
-
-      onScroll();
-
-
-    })();
-
-
-
-    /* =====================================================
-       PHOTO GALLERY SLIDER
-       ===================================================== */
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      function () {
-
-
-        const slider =
-          document.querySelector(".slider");
-
-
-        /* STOP IF SLIDER DOES NOT EXIST */
-
-        if (!slider) {
-
-          return;
-
-        }
-
-
-        const slidesContainer =
-          slider.querySelector(".slides");
-
-
-        const slides =
-          Array.from(
-            slider.querySelectorAll(".slide")
-          );
-
-
-        const previousButton =
-          slider.querySelector(".slider-btn.prev");
-
-
-        const nextButton =
-          slider.querySelector(".slider-btn.next");
-
-
-        const dotsContainer =
-          slider.querySelector(".slider-dots");
-
-
-        /* CHECK ELEMENTS */
-
-        if (
-          !slidesContainer ||
-          slides.length === 0
-        ) {
-
-          return;
-
-        }
-
-
-        let currentSlide = 0;
-
-
-
-        /* =================================================
-           CREATE DOTS
-           ================================================= */
-
-        slides.forEach(
-          function (slide, index) {
-
-
-            const dot =
-              document.createElement("button");
-
-
-            dot.type = "button";
-
-
-            dot.className =
-              "slider-dot";
-
-
-            dot.setAttribute(
-              "aria-label",
-              "Go to slide " + (index + 1)
-            );
-
-
-            dot.setAttribute(
-              "role",
-              "tab"
-            );
-
-
-            dot.addEventListener(
-              "click",
-              function () {
-
-                currentSlide = index;
-
-                updateSlider();
-
-                resetAutoSlide();
-
-              }
-            );
-
-
-            dotsContainer.appendChild(dot);
-
-          }
-        );
-
-
-
-        const dots =
-          Array.from(
-            dotsContainer.querySelectorAll(
-              ".slider-dot"
-            )
-          );
-
-
-
-        /* =================================================
-           UPDATE SLIDER
-           ================================================= */
-
-        function updateSlider() {
-
-
-          slidesContainer.style.transform =
-            "translateX(-" +
-            (currentSlide * 100) +
-            "%)";
-
-
-          dots.forEach(
-            function (dot, index) {
-
-
-              dot.classList.toggle(
-                "active",
-                index === currentSlide
-              );
-
-
-              dot.setAttribute(
-                "aria-selected",
-                index === currentSlide
-                  ? "true"
-                  : "false"
-              );
-
-            }
-          );
-
-        }
-
-
-
-        /* =================================================
-           NEXT SLIDE
-           ================================================= */
-
-        function nextSlide() {
-
-
-          currentSlide++;
-
-
-          if (
-            currentSlide >= slides.length
-          ) {
-
-            currentSlide = 0;
-
-          }
-
-
-          updateSlider();
-
-        }
-
-
-
-        /* =================================================
-           PREVIOUS SLIDE
-           ================================================= */
-
-        function previousSlide() {
-
-
-          currentSlide--;
-
-
-          if (currentSlide < 0) {
-
-            currentSlide =
-              slides.length - 1;
-
-          }
-
-
-          updateSlider();
-
-        }
-
-
-
-        /* =================================================
-           BUTTON EVENTS
-           ================================================= */
-
-        if (nextButton) {
-
-
-          nextButton.addEventListener(
-            "click",
-            function () {
-
-              nextSlide();
-
-              resetAutoSlide();
-
-            }
-          );
-
-        }
-
-
-
-        if (previousButton) {
-
-
-          previousButton.addEventListener(
-            "click",
-            function () {
-
-              previousSlide();
-
-              resetAutoSlide();
-
-            }
-          );
-
-        }
-
-
-
-        /* =================================================
-           AUTO SLIDE
-           ================================================= */
-
-        let autoSlide =
-          setInterval(
-            nextSlide,
-            4000
-          );
-
-
-
-        function resetAutoSlide() {
-
-
-          clearInterval(autoSlide);
-
-
-          autoSlide =
-            setInterval(
-              nextSlide,
-              4000
-            );
-
-        }
-
-
-
-        /* =================================================
-           PAUSE AUTO SLIDE WHEN MOUSE IS OVER SLIDER
-           ================================================= */
-
-        slider.addEventListener(
-          "mouseenter",
-          function () {
-
-            clearInterval(autoSlide);
-
-          }
-        );
-
-
-        slider.addEventListener(
-          "mouseleave",
-          function () {
-
-            resetAutoSlide();
-
-          }
-        );
-
-
-
-        /* =================================================
-           INITIAL SLIDE
-           ================================================= */
-
-        updateSlider();
-
-
-      }
-    );
-
-  </script>
+});
+</script>
 
 
 </body>
