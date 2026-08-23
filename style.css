@@ -1,17 +1,16 @@
 /* ------------------ style.css (responsive) ------------------ */
 
-/* VARIABLES */
+/* =====================================================
+   VARIABLES
+   ===================================================== */
 
-:root{
+:root {
 
   --accent-1: #1f5f9d;
-
   --accent-2: #2c6fb6;
-
   --accent-3: #1f9d8a;
 
   --muted: #666;
-
   --bg: #fff;
 
   --container: 1100px;
@@ -29,22 +28,22 @@
    GLOBAL
    ===================================================== */
 
-*{
-  box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
 html,
-body{
-  height:100%;
+body {
+  height: 100%;
 }
 
-html{
-  scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
+body {
 
-  margin:0;
+  margin: 0;
 
   font-family:
     Inter,
@@ -55,26 +54,26 @@ body{
     "Helvetica Neue",
     Arial;
 
-  background:var(--bg);
+  background: var(--bg);
 
-  color:#1b1b1b;
+  color: #1b1b1b;
 
-  -webkit-font-smoothing:antialiased;
+  -webkit-font-smoothing: antialiased;
 
-  -moz-osx-font-smoothing:grayscale;
+  -moz-osx-font-smoothing: grayscale;
 
-  line-height:1.5;
-
+  line-height: 1.5;
 }
 
-.container{
+.container {
 
-  max-width:var(--container);
+  width: 100%;
 
-  margin:0 auto;
+  max-width: var(--container);
 
-  padding:18px;
+  margin: 0 auto;
 
+  padding: 18px;
 }
 
 
@@ -82,103 +81,104 @@ body{
    NAVIGATION
    ===================================================== */
 
-header{
+header {
 
-  position:sticky;
+  position: sticky;
 
-  top:0;
+  top: 0;
 
-  z-index:60;
+  z-index: 60;
 
-  background:rgba(255,255,255,0.78);
+  background: rgba(255,255,255,0.78);
 
-  backdrop-filter:blur(6px) saturate(110%);
+  backdrop-filter: blur(6px) saturate(110%);
 
-  border-bottom:1px solid rgba(0,0,0,0.06);
+  border-bottom:
+    1px solid rgba(0,0,0,0.06);
 
-  box-shadow:0 6px 20px rgba(10,20,30,0.04);
-
+  box-shadow:
+    0 6px 20px rgba(10,20,30,0.04);
 }
 
-.nav-container{
+.nav-container {
 
-  display:flex;
+  display: flex;
 
-  align-items:center;
+  align-items: center;
 
-  justify-content:space-between;
+  justify-content: space-between;
 
-  gap:12px;
+  gap: 12px;
 
-  height:var(--nav-height);
-
-}
-
-
-/* LOGO */
-
-.logo{
-
-  color:var(--accent-1);
-
-  font-weight:800;
-
-  text-decoration:none;
-
-  letter-spacing:.2px;
-
-  font-size:18px;
-
-  display:inline-block;
-
+  height: var(--nav-height);
 }
 
 
-/* NAV LINKS */
+/* =====================================================
+   LOGO
+   ===================================================== */
 
-.nav-links{
+.logo {
 
-  display:flex;
+  color: var(--accent-1);
 
-  gap:12px;
+  font-weight: 800;
 
-  align-items:center;
+  text-decoration: none;
 
+  letter-spacing: .2px;
+
+  font-size: 18px;
+
+  display: inline-block;
 }
 
-.nav-links a{
 
-  position:relative;
+/* =====================================================
+   NAV LINKS
+   ===================================================== */
 
-  text-decoration:none;
+.nav-links {
 
-  color:var(--accent-1);
+  display: flex;
 
-  padding:8px 12px;
+  gap: 12px;
 
-  border-radius:999px;
+  align-items: center;
+}
 
-  font-weight:600;
+.nav-links a {
+
+  position: relative;
+
+  text-decoration: none;
+
+  color: var(--accent-1);
+
+  padding: 8px 12px;
+
+  border-radius: 999px;
+
+  font-weight: 600;
 
   transition:
     transform .18s ease,
     color .18s ease;
-
 }
 
-.nav-links a::after{
+.nav-links a::after {
 
-  content:"";
+  content: "";
 
-  position:absolute;
+  position: absolute;
 
-  left:10px;
+  left: 10px;
 
-  right:10px;
+  right: 10px;
 
-  bottom:-6px;
+  bottom: -6px;
 
-  height:3px;
+  height: 3px;
 
   background:
     linear-gradient(
@@ -187,38 +187,35 @@ header{
       var(--accent-3)
     );
 
-  transform:scaleX(0);
+  transform: scaleX(0);
 
-  transform-origin:left center;
+  transform-origin: left center;
 
   transition:
     transform .22s cubic-bezier(.2,.9,.3,1);
 
-  border-radius:3px;
-
+  border-radius: 3px;
 }
 
-.nav-links a:hover{
+.nav-links a:hover {
 
-  transform:translateY(-2px);
+  transform: translateY(-2px);
 
-  color:#163f67;
-
+  color: #163f67;
 }
 
 .nav-links a:hover::after,
-.nav-links a.active::after{
+.nav-links a.active::after {
 
-  transform:scaleX(1);
-
+  transform: scaleX(1);
 }
 
-.nav-links a.active{
+.nav-links a.active {
 
-  background:rgba(31,95,157,0.08);
+  background:
+    rgba(31,95,157,0.08);
 
-  padding:8px 16px;
-
+  padding: 8px 16px;
 }
 
 
@@ -226,92 +223,87 @@ header{
    HAMBURGER
    ===================================================== */
 
-.nav-toggle{
+.nav-toggle {
 
-  display:none;
+  display: none;
 
-  background:transparent;
+  background: transparent;
 
-  border:0;
+  border: 0;
 
-  width:44px;
+  width: 44px;
 
-  height:44px;
+  height: 44px;
 
-  border-radius:8px;
+  border-radius: 8px;
 
-  align-items:center;
+  align-items: center;
 
-  justify-content:center;
+  justify-content: center;
 
-  cursor:pointer;
-
+  cursor: pointer;
 }
 
-.hamburger{
+.hamburger {
 
-  width:22px;
+  width: 22px;
 
-  height:2px;
+  height: 2px;
 
-  background:var(--accent-1);
+  background: var(--accent-1);
 
-  display:block;
+  display: block;
 
-  position:relative;
+  position: relative;
 
-  transition:all .22s ease;
-
+  transition: all .22s ease;
 }
 
 .hamburger::before,
-.hamburger::after{
+.hamburger::after {
 
-  content:"";
+  content: "";
 
-  position:absolute;
+  position: absolute;
 
-  left:0;
+  left: 0;
 
-  width:22px;
+  width: 22px;
 
-  height:2px;
+  height: 2px;
 
-  background:var(--accent-1);
+  background: var(--accent-1);
 
-  transition:all .22s ease;
-
+  transition: all .22s ease;
 }
 
-.hamburger::before{
-  top:-7px;
+.hamburger::before {
+  top: -7px;
 }
 
-.hamburger::after{
-  top:7px;
+.hamburger::after {
+  top: 7px;
 }
 
 
 /* OPEN HAMBURGER */
 
-.nav-toggle.open .hamburger{
-  background:transparent;
+.nav-toggle.open .hamburger {
+  background: transparent;
 }
 
-.nav-toggle.open .hamburger::before{
+.nav-toggle.open .hamburger::before {
 
-  transform:rotate(45deg);
+  transform: rotate(45deg);
 
-  top:0;
-
+  top: 0;
 }
 
-.nav-toggle.open .hamburger::after{
+.nav-toggle.open .hamburger::after {
 
-  transform:rotate(-45deg);
+  transform: rotate(-45deg);
 
-  top:0;
-
+  top: 0;
 }
 
 
@@ -319,68 +311,65 @@ header{
    PANELS
    ===================================================== */
 
-.panel{
+.panel {
 
-  padding:40px 0;
-
+  padding: 40px 0;
 }
 
-.panel-inner{
+.panel-inner {
 
-  display:flex;
+  display: flex;
 
-  gap:var(--gap);
+  gap: var(--gap);
 
-  align-items:center;
-
+  align-items: center;
 }
 
 
 /* LEFT */
 
-.panel-left{
+.panel-left {
 
-  flex:1;
+  flex: 1;
 
-  min-width:220px;
-
+  min-width: 220px;
 }
 
 
 /* RIGHT */
 
-.panel-right{
+.panel-right {
 
-  flex:1;
+  flex: 1;
 
-  display:flex;
+  display: flex;
 
-  justify-content:center;
+  justify-content: center;
 
-  align-items:center;
-
+  align-items: center;
 }
 
 
-/* PANEL IMAGE */
+/* =====================================================
+   PANEL IMAGE
+   ===================================================== */
 
-.panel-image{
+.panel-image {
 
-  width:100%;
+  width: 100%;
 
-  max-width:560px;
+  max-width: 560px;
 
-  height:340px;
+  height: 340px;
 
-  border-radius:var(--radius);
+  border-radius: var(--radius);
 
-  background-size:cover;
+  background-size: cover;
 
-  background-position:center;
+  background-position: center;
 
   box-shadow:
     0 10px 30px rgba(10,20,30,0.08);
-
 }
 
 
@@ -388,20 +377,20 @@ header{
    SECTION COLORS
    ===================================================== */
 
-.panel-home{
-  background:#FFF6E9;
+.panel-home {
+  background: #FFF6E9;
 }
 
-.panel-about{
-  background:#F1FFEE;
+.panel-about {
+  background: #F1FFEE;
 }
 
-.panel-vision{
-  background:#EEF6FF;
+.panel-vision {
+  background: #EEF6FF;
 }
 
-.panel-mission{
-  background:#FFF0F2;
+.panel-mission {
+  background: #FFF0F2;
 }
 
 
@@ -409,47 +398,49 @@ header{
    EVENTS
    ===================================================== */
 
-.events-section{
+.events-section {
 
-  background:#F7F8FA;
+  background: #F7F8FA;
 
-  padding:44px 0;
-
+  padding: 44px 0;
 }
 
-.event-card{
+.event-card {
 
-  display:flex;
+  display: flex;
 
-  gap:18px;
+  gap: 18px;
 
-  background:#fff;
+  background: #fff;
 
-  border-radius:12px;
+  border-radius: 12px;
 
-  padding:18px;
+  padding: 18px;
 
   box-shadow:
     0 8px 22px rgba(0,0,0,0.05);
 
-  align-items:flex-start;
-
+  align-items: flex-start;
 }
 
-.event-image{
+.event-image {
 
-  width:40%;
+  width: 40%;
 
-  min-width:200px;
+  min-width: 200px;
 
-  height:260px;
+  height: 260px;
 
-  border-radius:12px;
+  border-radius: 12px;
 
-  background-size:cover;
+  background-size: cover;
 
-  background-position:center;
+  background-position: center;
+}
 
+.event-content {
+  flex: 1;
+  min-width: 0;
 }
 
 
@@ -457,82 +448,80 @@ header{
    101 EARTHMOVERS VIDEO GALLERY
    ===================================================== */
 
-.yatra-video-gallery{
+.yatra-video-gallery {
 
-  width:100%;
+  width: 100%;
 
-  margin-top:35px;
+  margin-top: 35px;
 
-  padding:30px 0;
-
+  padding: 30px 0;
 }
 
-.yatra-gallery-heading{
+.yatra-gallery-heading {
 
-  text-align:center;
+  text-align: center;
 
-  margin-bottom:22px;
-
+  margin-bottom: 22px;
 }
 
-.yatra-gallery-heading h3{
+.yatra-gallery-heading h3 {
 
-  margin:0;
+  margin: 0;
 
-  font-size:26px;
+  font-size: 26px;
 
-  color:#163f67;
-
+  color: #163f67;
 }
 
-.yatra-gallery-heading p{
+.yatra-gallery-heading p {
 
-  margin:7px 0 0;
+  margin: 7px 0 0;
 
-  color:#666;
+  color: #666;
 
-  font-size:14px;
-
+  font-size: 14px;
 }
 
 
-/* VIDEO GRID */
+/* =====================================================
+   VIDEO GRID
+   ===================================================== */
 
-.yatra-video-grid{
+.yatra-video-grid {
 
-  width:100%;
+  width: 100%;
 
-  max-width:900px;
+  max-width: 900px;
 
-  margin:0 auto;
+  margin: 0 auto;
 
-  display:grid;
+  display: grid;
 
   grid-template-columns:
-    repeat(2,minmax(0,1fr));
+    repeat(2, minmax(0, 1fr));
 
-  gap:20px;
-
+  gap: 20px;
 }
 
 
-/* VIDEO CARD */
+/* =====================================================
+   VIDEO CARD
+   ===================================================== */
 
-.yatra-video-card{
+.yatra-video-card {
 
-  width:100%;
+  width: 100%;
 
-  background:#fff;
+  background: #ffffff;
 
-  border:1px solid #e5e5e5;
+  border: 1px solid #e5e5e5;
 
-  border-radius:12px;
+  border-radius: 12px;
 
-  overflow:hidden;
+  overflow: hidden;
 
   box-shadow:
     0 6px 18px rgba(0,0,0,0.07);
-
 }
 
 
@@ -540,98 +529,146 @@ header{
    VIDEO
    ===================================================== */
 
-.yatra-video-card video{
+/*
+   IMPORTANT:
 
-  display:block;
+   Videos keep their original aspect ratio.
+   They are NOT cropped.
+*/
 
-  width:100%;
+.yatra-video-card video {
 
-  height:auto;
+  display: block;
 
-  max-height:360px;
+  width: 100%;
 
-  /*
-     IMPORTANT:
-     The complete video stays visible.
-     Nothing is cropped.
-  */
+  height: auto;
 
-  object-fit:contain;
+  max-height: 360px;
 
-  background:#000;
+  object-fit: contain;
 
-  margin:0 auto;
+  background: #000;
 
-}
-
-
-/* VIDEO TITLE */
-
-.video-title{
-
-  padding:11px 14px;
-
-  text-align:center;
-
-  font-size:14px;
-
-  font-weight:700;
-
-  color:#333;
-
+  margin: 0 auto;
 }
 
 
 /* =====================================================
-   PHOTO GALLERY / SLIDER
+   VIDEO TITLE
+   ===================================================== */
+
+.video-title {
+
+  padding: 11px 14px;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #333;
+}
+
+
+/* =====================================================
+   PHOTO GALLERY
    ===================================================== */
 
 .gallery-section {
+
   background: #F8FBFF;
+
   padding: 48px 0;
+
   text-align: center;
 }
 
+.gallery-section h2 {
+
+  margin-top: 0;
+
+  color: #163f67;
+}
+
+.muted {
+
+  color: #666;
+
+  margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   PHOTO SLIDER
+   ===================================================== */
+
 .slider {
+
   width: 100%;
+
   max-width: 900px;
+
   margin: 0 auto;
 
   position: relative;
+
   overflow: hidden;
 
   border-radius: 14px;
+
   background: #111;
 }
 
-/* SLIDES CONTAINER */
+
+/* =====================================================
+   SLIDES CONTAINER
+   ===================================================== */
 
 .slides {
+
   display: flex;
+
   width: 100%;
 
-  transition: transform 0.55s ease-in-out;
+  transition:
+    transform .55s
+    cubic-bezier(.22,.9,.3,1);
 
   will-change: transform;
 }
 
-/* EVERY IMAGE HAS THE SAME FRAME */
+
+/* =====================================================
+   INDIVIDUAL SLIDE
+   ===================================================== */
+
+/*
+   IMPORTANT:
+
+   Your gallery has both PORTRAIT and LANDSCAPE photos.
+
+   "contain" makes the ENTIRE photo visible.
+
+   Nothing is:
+   - cropped
+   - stretched
+   - distorted
+   - zoomed excessively
+*/
 
 .slide {
+
   flex: 0 0 100%;
-  width: 100%;
+
   min-width: 100%;
 
-  /* 16:9 frame */
-  aspect-ratio: 16 / 9;
+  width: 100%;
 
-  /*
-     COVER:
-     - fills the complete frame
-     - keeps the original image proportions
-     - crops excess edges when necessary
-  */
-  background-size: cover;
+  height: 500px;
+
+  background-size: contain;
 
   background-position: center center;
 
@@ -646,58 +683,61 @@ header{
    ===================================================== */
 
 .slider-btn {
+
   position: absolute;
 
   top: 50%;
+
   transform: translateY(-50%);
 
-  width: 44px;
-  height: 44px;
-
-  padding: 0;
+  background: rgba(255,255,255,0.9);
 
   border: 0;
-  border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 10px;
 
-  color: var(--accent-1);
+  border-radius: 8px;
 
   cursor: pointer;
 
   z-index: 30;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 20px;
+  color: var(--accent-1);
 
   box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.12);
+    0 8px 20px rgba(0,0,0,0.12);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 }
 
 .slider-btn:hover {
-  background: #ffffff;
+
+  background: #fff;
 }
 
 .slider-btn.prev {
-  left: 12px;
+  left: 10px;
 }
 
 .slider-btn.next {
-  right: 12px;
+  right: 10px;
 }
 
 
 /* =====================================================
-   DOTS
+   SLIDER DOTS
    ===================================================== */
 
 .slider-dots {
+
   position: absolute;
 
   bottom: 12px;
+
   left: 50%;
 
   transform: translateX(-50%);
@@ -717,28 +757,41 @@ header{
   z-index: 35;
 }
 
+
+/* JavaScript-created dots */
+
 .slider-dots button,
 .slider-dot {
+
   width: 9px;
+
   height: 9px;
 
   min-width: 9px;
 
   padding: 0;
 
-  border: none;
+  border: 0;
 
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.75);
+  background:
+    rgba(255,255,255,0.8);
 
-  opacity: 0.7;
+  opacity: .65;
 
   cursor: pointer;
+
+  transition:
+    .2s ease;
 }
+
+
+/* ACTIVE DOT */
 
 .slider-dots button.active,
 .slider-dot.active {
+
   background: #ffffff;
 
   opacity: 1;
@@ -748,21 +801,237 @@ header{
 
 
 /* =====================================================
+   CONTACT
+   ===================================================== */
+
+.contact-section {
+
+  background: #FDFDFD;
+
+  padding: 40px 0;
+}
+
+.contact-grid {
+
+  display: flex;
+
+  gap: 24px;
+
+  align-items: flex-start;
+
+  flex-wrap: wrap;
+}
+
+.contact-grid > div {
+
+  flex: 1 1 320px;
+
+  min-width: 260px;
+}
+
+
+/* =====================================================
+   PRESIDENT CARD
+   ===================================================== */
+
+.president-card {
+
+  max-width: 360px;
+
+  background: #fff;
+
+  padding: 18px;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+
+  text-align: center;
+}
+
+.president-photo {
+
+  width: 100%;
+
+  height: 260px;
+
+  background-size: cover;
+
+  background-position: center;
+
+  border-radius: 10px;
+
+  margin-bottom: 12px;
+}
+
+
+/* =====================================================
+   INPUTS
+   ===================================================== */
+
+input,
+textarea {
+
+  width: 100%;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  border: 1px solid #e6e6e6;
+
+  margin-bottom: 12px;
+
+  font-size: 15px;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer {
+
+  padding: 20px 0;
+
+  text-align: center;
+
+  border-top:
+    1px solid rgba(0,0,0,0.04);
+
+  margin-top: 30px;
+}
+
+
+/* =====================================================
    TABLET
    ===================================================== */
 
 @media (max-width: 900px) {
 
-  .slider {
+  /* PANELS */
+
+  .panel-inner {
+
+    flex-direction: column-reverse;
+
+    gap: 16px;
+  }
+
+  .panel-image {
+
+    max-width: 100%;
+
+    height: 260px;
+  }
+
+
+  /* EVENTS */
+
+  .event-card {
+
+    flex-direction: column;
+  }
+
+  .event-image {
+
     width: 100%;
+
+    height: 240px;
+
+    min-width: unset;
+  }
+
+
+  /* VIDEOS */
+
+  .yatra-video-grid {
+
+    grid-template-columns:
+      repeat(2, minmax(0,1fr));
+
+    gap: 16px;
+  }
+
+  .yatra-video-card video {
+
+    width: 100%;
+
+    height: auto;
+
+    max-height: 300px;
+
+    object-fit: contain;
+  }
+
+
+  /* SLIDER */
+
+  .slider {
+
     max-width: 100%;
   }
 
   .slide {
-    aspect-ratio: 16 / 9;
 
-    background-size: cover;
+    height: 400px;
+
+    background-size: contain;
+
     background-position: center center;
+
+    background-repeat: no-repeat;
+  }
+
+
+  /* NAVIGATION */
+
+  .nav-toggle {
+
+    display: flex;
+  }
+
+  .nav-links {
+
+    display: none;
+
+    position: fixed;
+
+    right: 12px;
+
+    top: var(--nav-height);
+
+    background:
+      rgba(255,255,255,0.98);
+
+    border-radius: 12px;
+
+    box-shadow:
+      0 20px 60px rgba(2,8,23,0.12);
+
+    padding: 12px;
+
+    flex-direction: column;
+
+    min-width: 200px;
+  }
+
+  .nav-links a {
+
+    padding: 10px 14px;
+
+    display: block;
+  }
+
+  .container {
+
+    padding: 14px;
+  }
+
+  .president-photo {
+
+    height: 220px;
   }
 
 }
@@ -774,46 +1043,222 @@ header{
 
 @media (max-width: 600px) {
 
+  /* NAVIGATION */
+
+  .nav-links {
+
+    right: 8px;
+
+    min-width: 160px;
+
+    padding: 10px;
+  }
+
+  .nav-container {
+
+    padding: 8px 12px;
+  }
+
+  .logo {
+
+    font-size: 16px;
+  }
+
+
+  /* PANELS */
+
+  .panel-image {
+
+    height: 200px;
+  }
+
+  .panel-left h1 {
+
+    font-size: 20px;
+  }
+
+
+  /* EVENTS */
+
+  .event-card {
+
+    padding: 12px;
+  }
+
+
+  /* =====================================================
+     VIDEOS
+     ===================================================== */
+
+  .yatra-video-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .yatra-video-card video {
+
+    width: 100%;
+
+    height: auto;
+
+    max-height: 320px;
+
+    object-fit: contain;
+  }
+
+
+  /* =====================================================
+     PHOTO SLIDER
+     ===================================================== */
+
   .slider {
+
+    width: 100%;
+
     border-radius: 10px;
   }
 
   .slide {
-    aspect-ratio: 16 / 9;
 
-    background-size: cover;
+    height: 300px;
+
+    background-size: contain;
 
     background-position: center center;
+
+    background-repeat: no-repeat;
   }
 
+
+  /* SLIDER BUTTONS */
+
   .slider-btn {
+
     width: 38px;
+
     height: 38px;
 
-    font-size: 18px;
+    font-size: 20px;
+
+    padding: 6px;
   }
 
   .slider-btn.prev {
+
     left: 8px;
   }
 
   .slider-btn.next {
+
     right: 8px;
   }
 
+
+  /* DOTS */
+
   .slider-dots {
+
     width: 85%;
-    bottom: 8px;
 
     gap: 5px;
+
+    bottom: 9px;
   }
 
   .slider-dots button,
   .slider-dot {
+
     width: 7px;
+
     height: 7px;
 
     min-width: 7px;
+  }
+
+
+  /* CONTACT */
+
+  .contact-grid {
+
+    gap: 14px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+  .panel-image {
+
+    height: 200px;
+  }
+
+  .panel-left h1 {
+
+    font-size: 20px;
+  }
+
+  .nav-links {
+
+    right: 8px;
+
+    min-width: 160px;
+
+    padding: 10px;
+  }
+
+  .nav-container {
+
+    padding: 8px 12px;
+  }
+
+  .logo {
+
+    font-size: 16px;
+  }
+
+  .event-card {
+
+    padding: 12px;
+  }
+
+  .contact-grid {
+
+    gap: 14px;
+  }
+
+
+  /* VIDEOS */
+
+  .yatra-video-card video {
+
+    width: 100%;
+
+    height: auto;
+
+    max-height: 300px;
+
+    object-fit: contain;
+  }
+
+
+  /* SLIDER */
+
+  .slide {
+
+    height: 280px;
+
+    background-size: contain;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
   }
 
 }
