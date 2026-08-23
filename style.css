@@ -648,26 +648,19 @@ header{
    - some edges may be cropped
 */
 
-.slide{
+.slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  width: 100%;
 
-  flex:0 0 100%;
+  height: 400px;
 
-  min-width:100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 
-  width:100%;
-
-  height:500px;
-
-  background-size:cover;
-
-  background-position:center center;
-
-  background-repeat:no-repeat;
-
-  background-color:#111;
-
+  background-color: #111;
 }
-
 
 /* =====================================================
    SLIDER BUTTONS
@@ -1136,15 +1129,17 @@ footer{
      SLIDER
      ===================================================== */
 
-  .slider .slide{
+@media (max-width: 600px) {
 
-    height:300px;
+  .slider .slide {
+    height: 260px;
 
-    background-size:cover;
-
-    background-position:center;
-
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
+
+}
 
   .slider-btn{
 
