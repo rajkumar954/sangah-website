@@ -230,3 +230,122 @@ footer{ padding:20px 0; text-align:center; border-top:1px solid rgba(0,0,0,0.04)
   .event-card{ padding:12px }
   .contact-grid{ gap:14px }
 }
+
+
+/* ================= 101 YATRA VIDEO GALLERY ================= */
+
+.yatra-video-gallery {
+  margin-top: 35px;
+  padding: 35px 0;
+}
+
+.yatra-gallery-heading {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.yatra-gallery-heading h3 {
+  margin: 0;
+  font-size: 28px;
+  color: #163f67;
+}
+
+.yatra-gallery-heading p {
+  margin: 6px 0 0;
+  color: #666;
+  font-size: 16px;
+}
+
+
+/* TWO VIDEO GALLERY */
+
+.yatra-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+/* VIDEO CARD */
+
+.yatra-video-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.yatra-video-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* VIDEO */
+
+.yatra-video-card video {
+  width: 100%;
+  height: 280px;
+
+  display: block;
+
+  object-fit: cover;
+
+  background: #111;
+}
+
+
+/* VIDEO TITLE */
+
+.video-title {
+  padding: 13px 16px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #333;
+
+  text-align: center;
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 900px) {
+
+  .yatra-video-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .yatra-video-card video {
+    height: 230px;
+  }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+  .yatra-video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yatra-video-card video {
+    height: 230px;
+  }
+
+  .yatra-gallery-heading h3 {
+    font-size: 23px;
+  }
+
+}
