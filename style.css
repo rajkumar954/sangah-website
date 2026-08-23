@@ -1,239 +1,116 @@
-/* ------------------ style.css (responsive) ------------------ */
+/* =====================================================
+   PHOTO GALLERY SLIDER
+   ===================================================== */
 
-/* VARIABLES */
-:root{
-  --accent-1: #1f5f9d;
-  --accent-2: #2c6fb6;
-  --accent-3: #1f9d8a;
-  --muted: #666;
-  --bg: #fff;
-  --container: 1100px;
-  --radius: 12px;
-  --gap: 20px;
-  --nav-height: 64px;
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
-/* GLOBAL */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:var(--bg);
-  color:#1b1b1b;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.5;
+.slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
 }
 
-.container{
-  max-width:var(--container);
-  margin:0 auto;
-  padding:18px;
+.slide {
+  min-width: 100%;
+  width: 100%;
+  height: 450px;
+  flex-shrink: 0;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-/* ================= NAVIGATION ================= */
-header{
-  position:sticky;
-  top:0;
-  z-index:60;
-  background: rgba(255,255,255,0.78);
-  backdrop-filter: blur(6px) saturate(110%);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 6px 20px rgba(10,20,30,0.04);
+
+/* SLIDER BUTTONS */
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+
+  font-size: 24px;
+
+  cursor: pointer;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.nav-container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  height:var(--nav-height);
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 0.85);
 }
 
-/* logo */
-.logo{
-  color:var(--accent-1);
-  font-weight:800;
-  text-decoration:none;
-  letter-spacing:.2px;
-  font-size:18px;
-  display:inline-block;
+.slider-btn.prev {
+  left: 15px;
 }
 
-/* nav links - desktop */
-.nav-links{
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-.nav-links a{
-  position:relative;
-  text-decoration:none;
-  color:var(--accent-1);
-  padding:8px 12px;
-  border-radius:999px;
-  font-weight:600;
-  transition:transform .18s ease, color .18s ease;
-}
-.nav-links a::after{
-  content:"";
-  position:absolute;
-  left:10px; right:10px; bottom:-6px;
-  height:3px;
-  background: linear-gradient(90deg,var(--accent-2),var(--accent-3));
-  transform: scaleX(0);
-  transform-origin:left center;
-  transition: transform .22s cubic-bezier(.2,.9,.3,1);
-  border-radius:3px;
-}
-.nav-links a:hover{ transform: translateY(-2px); color:#163f67; }
-.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
-.nav-links a.active { background: rgba(31,95,157,0.08); padding:8px 16px; }
-
-/* hamburger - hidden on desktop */
-.nav-toggle{
-  display:none;
-  background:transparent;
-  border:0;
-  width:44px;
-  height:44px;
-  border-radius:8px;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-}
-.hamburger{
-  width:22px;
-  height:2px;
-  background:var(--accent-1);
-  display:block;
-  position:relative;
-  transition: all .22s ease;
-}
-.hamburger::before, .hamburger::after{
-  content:"";
-  position:absolute;
-  left:0;
-  width:22px;
-  height:2px;
-  background:var(--accent-1);
-  transition: all .22s ease;
-}
-.hamburger::before { top:-7px; }
-.hamburger::after  { top:7px; }
-
-/* when open (toggle adds .open class on button) */
-.nav-toggle.open .hamburger{ background:transparent; }
-.nav-toggle.open .hamburger::before{ transform: rotate(45deg); top:0; }
-.nav-toggle.open .hamburger::after{ transform: rotate(-45deg); top:0; }
-
-/* ================= PANELS (LEFT TEXT + RIGHT IMAGE) ================= */
-.panel{ padding:40px 0; }
-.panel-inner{ display:flex; gap:var(--gap); align-items:center; }
-
-/* left & right columns */
-.panel-left{ flex:1; min-width:220px; }
-.panel-right{ flex:1; display:flex; justify-content:center; align-items:center; }
-
-/* panel image: use cover for panels (good visual) */
-.panel-image{
-  width:100%;
-  max-width:560px;
-  height:340px;
-  border-radius:var(--radius);
-  background-size:cover;
-  background-position:center;
-  box-shadow: 0 10px 30px rgba(10,20,30,0.08);
+.slider-btn.next {
+  right: 15px;
 }
 
-/* if you prefer no-crop for slider, keep slider slide style separate */
 
-/* SECTION COLORS */
-.panel-home{ background:#FFF6E9 }
-.panel-about{ background:#F1FFEE }
-.panel-vision{ background:#EEF6FF }
-.panel-mission{ background:#FFF0F2 }
+/* DOTS */
 
-/* ================= EVENTS ================= */
-.events-section{ background:#F7F8FA; padding:44px 0; }
-.event-card{
-  display:flex;
-  gap:18px;
-  background:#fff;
-  border-radius:12px;
-  padding:18px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.05);
-  align-items:flex-start;
-}
-.event-image{
-  width:40%;
-  min-width:200px;
-  height:260px;
-  border-radius:12px;
-  background-size:cover;
-  background-position:center;
+.slider-dots {
+  position: absolute;
+
+  bottom: 15px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 90%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 6px;
+
+  z-index: 20;
 }
 
-/* ================= GALLERY / SLIDER ================= */
-.gallery-section{ background:#F8FBFF; padding:48px 0; text-align:center; }
-.slider{ width:100%; max-width:760px; margin:0 auto; position:relative; overflow:hidden; border-radius:14px; }
-.slides{ display:flex; transition:transform .55s cubic-bezier(.22,.9,.3,1); }
-.slide{ min-width:100%; height:380px; background-size:contain; background-position:center; background-repeat:no-repeat; background-color:#111; }
+.slider-dot {
+  width: 9px;
+  height: 9px;
 
-/* slider buttons & dots - unchanged from earlier styles (kept minimal) */
-.slider-btn{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.9); border:0; padding:8px 10px; border-radius:8px; cursor:pointer; z-index:30; color:var(--accent-1); box-shadow:0 8px 20px rgba(0,0,0,0.12); }
-.slider-btn.prev{ left:10px } .slider-btn.next{ right:10px }
-.slider-dots{ position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:35; }
-.slider-dots button{ width:10px;height:10px;border-radius:50%;border:0;background:rgba(255,255,255,0.8);opacity:0.6; cursor:pointer; }
-.slider-dots button.active{ background:linear-gradient(90deg,var(--accent-2),var(--accent-3)); opacity:1; }
+  padding: 0;
 
-/* ================= CONTACT ================= */
-.contact-section{ background:#FDFDFD; padding:40px 0; }
-.contact-grid{ display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap; }
-.contact-grid > div{ flex:1 1 320px; min-width:260px; }
+  border: none;
+  border-radius: 50%;
 
-/* president card */
-.president-card{ max-width:360px; background:#fff; padding:18px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.06); text-align:center; }
-.president-photo{ width:100%; height:260px; background-size:cover; background-position:center; border-radius:10px; margin-bottom:12px }
+  background: rgba(255, 255, 255, 0.6);
 
-/* inputs & buttons */
-input,textarea{ width:100%; padding:12px; border-radius:8px; border:1px solid #e6e6e6; margin-bottom:12px; font-size:15px }
-button{ background:var(--accent-2); color:#fff; border:0; padding:10px 16px; border-radius:8px; cursor:pointer }
+  cursor: pointer;
 
-/* ================= FOOTER ================= */
-footer{ padding:20px 0; text-align:center; border-top:1px solid rgba(0,0,0,0.04); margin-top:30px }
-
-/* ================= RESPONSIVE BREAKPOINTS ================= */
-
-/* tablet */
-@media (max-width: 900px) {
-  .panel-inner{ flex-direction:column-reverse; gap:16px; }
-  .panel-image{ max-width:100%; height:260px; }
-  .event-card{ flex-direction:column; }
-  .event-image{ width:100%; height:240px; min-width:unset }
-  .slider .slide{ height:240px }
-  .nav-toggle{ display:flex }
-  .nav-links{ display:none; position:fixed; right:12px; top:var(--nav-height); background:rgba(255,255,255,0.98); border-radius:12px; box-shadow:0 20px 60px rgba(2,8,23,0.12); padding:12px; flex-direction:column; min-width:200px; }
-  .nav-links a{ padding:10px 14px; display:block }
-  .container{ padding:14px }
-  .president-photo{ height:220px }
+  transition: 0.2s ease;
 }
 
-/* small phones */
-@media (max-width: 480px) {
-  .panel-image{ height:200px }
-  .panel-left h1{ font-size:20px }
-  .nav-links{ right:8px; min-width:160px; padding:10px }
-  .nav-container{ padding:8px 12px }
-  .logo{ font-size:16px }
-  .event-card{ padding:12px }
-  .contact-grid{ gap:14px }
+.slider-dot.active {
+  background: #ffffff;
+  transform: scale(1.3);
 }
 
 
 /* =====================================================
-   101 EARTHMOVERS VIDEO GALLERY
+   101 YATRA VIDEO GALLERY
    ===================================================== */
 
 .yatra-video-gallery {
@@ -259,9 +136,6 @@ footer{ padding:20px 0; text-align:center; border-top:1px solid rgba(0,0,0,0.04)
   font-size: 15px;
 }
 
-
-/* VIDEO GRID */
-
 .yatra-video-grid {
   width: 100%;
   max-width: 950px;
@@ -271,9 +145,6 @@ footer{ padding:20px 0; text-align:center; border-top:1px solid rgba(0,0,0,0.04)
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
-
-
-/* VIDEO CARD */
 
 .yatra-video-card {
   background: #ffffff;
@@ -286,44 +157,18 @@ footer{ padding:20px 0; text-align:center; border-top:1px solid rgba(0,0,0,0.04)
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-
-/* VIDEO PLAYER */
-
 .yatra-video-card video {
   display: block;
 
   width: 100%;
-
-  /*
-     IMPORTANT:
-     Let the browser determine the height.
-  */
   height: auto;
 
-  /*
-     Never crop the video.
-  */
+  max-width: 100%;
+
   object-fit: contain;
 
-  /*
-     Black background fills any unused area.
-  */
-  background: #000;
-
-  /*
-     Remove any maximum height that could
-     interfere with the original ratio.
-  */
-  max-height: none;
-
-  /*
-     Prevent browser from stretching the video.
-  */
-  aspect-ratio: auto;
+  background: #000000;
 }
-
-
-/* TITLE */
 
 .video-title {
   padding: 14px 16px;
@@ -337,19 +182,25 @@ footer{ padding:20px 0; text-align:center; border-top:1px solid rgba(0,0,0,0.04)
 }
 
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+   ===================================================== */
 
 @media (max-width: 600px) {
+
+  .slide {
+    height: 300px;
+  }
+
+  .slider-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
 
   .yatra-video-grid {
     grid-template-columns: 1fr;
     gap: 18px;
-  }
-
-  .yatra-video-card video {
-    width: 100%;
-    height: auto;
-    max-height: none;
   }
 
   .yatra-gallery-heading h3 {
