@@ -260,7 +260,7 @@ footer{ padding:20px 0; text-align:center; border-top:1px solid rgba(0,0,0,0.04)
 }
 
 
-/* TWO VIDEO CARDS */
+/* VIDEO GRID */
 
 .yatra-video-grid {
   width: 100%;
@@ -287,7 +287,7 @@ footer{ padding:20px 0; text-align:center; border-top:1px solid rgba(0,0,0,0.04)
 }
 
 
-/* VIDEO */
+/* VIDEO PLAYER */
 
 .yatra-video-card video {
   display: block;
@@ -296,15 +296,30 @@ footer{ padding:20px 0; text-align:center; border-top:1px solid rgba(0,0,0,0.04)
 
   /*
      IMPORTANT:
-     Do NOT use object-fit: cover.
-     It cuts the video.
+     Let the browser determine the height.
   */
-
   height: auto;
 
-  max-height: 500px;
+  /*
+     Never crop the video.
+  */
+  object-fit: contain;
 
-  background: #000000;
+  /*
+     Black background fills any unused area.
+  */
+  background: #000;
+
+  /*
+     Remove any maximum height that could
+     interfere with the original ratio.
+  */
+  max-height: none;
+
+  /*
+     Prevent browser from stretching the video.
+  */
+  aspect-ratio: auto;
 }
 
 
@@ -322,9 +337,7 @@ footer{ padding:20px 0; text-align:center; border-top:1px solid rgba(0,0,0,0.04)
 }
 
 
-/* =====================================================
-   MOBILE
-   ===================================================== */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
