@@ -364,7 +364,7 @@ header {
 
   border-radius: var(--radius);
 
-  background-size: cover;
+  background-size: contain;
 
   background-position: center;
 
@@ -433,7 +433,7 @@ header {
 
   border-radius: 12px;
 
-  background-size: cover;
+  background-size: contain;
 
   background-position: center;
 }
@@ -856,7 +856,7 @@ header {
 
   height: 260px;
 
-  background-size: cover;
+  background-size: contain;
 
   background-position: center;
 
