@@ -865,6 +865,101 @@ header {
   margin-bottom: 12px;
 }
 
+```css
+/* =====================================================
+   QR CODE & VISITING CARD
+   ===================================================== */
+
+.contact-image-card {
+  flex: 1 1 280px;
+  min-width: 260px;
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.contact-image-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #163f67;
+}
+
+
+/* QR CODE */
+
+.qr-image {
+  width: 100%;
+  height: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff;
+  border-radius: 10px;
+}
+
+.qr-image img {
+  width: 220px;
+  height: 220px;
+
+  object-fit: contain;
+  display: block;
+}
+
+
+/* VISITING CARD */
+
+.visiting-card-image {
+  width: 100%;
+  height: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.visiting-card-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  display: block;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .contact-image-card {
+    width: 100%;
+  }
+
+  .qr-image {
+    height: 220px;
+  }
+
+  .qr-image img {
+    width: 190px;
+    height: 190px;
+  }
+
+  .visiting-card-image {
+    height: auto;
+    min-height: 200px;
+  }
+
+}
+```
+
+
 
 /* =====================================================
    INPUTS
